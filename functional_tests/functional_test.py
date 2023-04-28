@@ -1,3 +1,6 @@
-import random
+from selenium import webdriver
 
-# TEST!!!
+browser = webdriver.Chrome()
+browser.get('127.0.0.1:8000')
+
+assert 'Django' in browser.title
