@@ -17,16 +17,22 @@ class BasicInstalltest(unittest.TestCase):
 
     def test_page_loads(self):
         self.browser.get('http://127.0.0.1:8000/')
-        self.assertIn('The install worked successfully! Congratulations!', self.browser.title)
+        self.assertIn('Markiyan', self.browser.title)
     
 
     def test_page_header(self):
         self.browser.get('http://127.0.0.1:8000/')
     
         h1 = self.browser.find_element(By.TAG_NAME, 'h1').text
-        self.assertIn('The install worked successfully! Congratulations!', h1)
+        self.assertIn('Markiyan', h1)
         # print(h1_tag.text)
-        print('Slenium version: ' + selenium.__version__)
+
+    def test_page_div_main(self):
+        self.browser.get('http://127.0.0.1:8000/')
+    
+        main_div = self.browser.find_element(By.CLASS_NAME, 'container')
+        self.assertTrue(main_div)
+
     
     def selenium_version(self):
         print('Slenium version: ' + selenium.__version__)
